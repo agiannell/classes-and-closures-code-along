@@ -16,7 +16,7 @@
 */
 
 function count(num){
-    // Code here
+    return () => ++num;
 };
 
 
@@ -36,18 +36,22 @@ var newClosure = count(5);
   ------------- CODE TO MAKE WORK ------------
   const greetingClosure = greeting('Henry');
   greetingClosure('Hello')
+  */
   
-*/
  
-// Code here
+function greeting(name){
+  return function(greetStr){
+    return `${greetStr} ${name}`;
+  }
+}
     
     
 
 
 // After you have created the greeting function above, uncomment the code below, but do not edit it
 
-// const greetingClosure = greeting('Henry');
-// let greet = greetingClosure('Hello')
+const greetingClosure = greeting('Henry');
+let greet = greetingClosure('Hello')
     
 
 
@@ -63,7 +67,7 @@ var newClosure = count(5);
 
 */
 
-// Code here
+// in the repl.it
 
 
 
@@ -74,7 +78,13 @@ var newClosure = count(5);
   
 */
 
-// Code here
+class Puppy {
+  constructor(happiness, energy, behavior){
+    this.happiness = happiness;
+    this.energy = energy;
+    this.behavior = behavior;
+  }
+}
 
 
 
@@ -87,7 +97,20 @@ var newClosure = count(5);
 
 */
 
-// Code here
+class Car {
+  constructor(manufacturer, year){
+    this.manufacturer = manufacturer;
+    this.year = year;
+  }
+
+  displayManufacturer(){
+    return `${this.manufacturer}`
+  }
+    
+  displayYear(){
+    return this.year
+  }
+}
 
 
 
@@ -97,9 +120,22 @@ var newClosure = count(5);
   The class should have a constructor that accepts three parameters: happiness, energy, and behavior
   
   This Panda class should also include two prototype methods:
-    - getTreat: This method should increase happiness by 20 and return the new happiness value
+    - getsTreat: This method should increase happiness by 20 and return the new happiness value
     - takesNap: This method should decrease energy by 45 and increase behavior by 15
 
 */
 
-// Code here
+class Panda extends Puppy {
+  constructor(happiness, energy, behavior){
+    super(happiness, energy, behavior);
+  }
+
+  getsTreat(){
+    return this.happiness += 20;
+  }
+
+  takesNap(){
+    this.energy -= 45;
+    this.behavior += 15;
+  }
+}
